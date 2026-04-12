@@ -45,7 +45,7 @@ Note: css extraction is only enabled on `vite build`, `vite dev` will have runti
 ```ts
 import { css } from "@yume-chan/yangshi";
 
-css({
+const className = css({
   color: "red",
 });
 ```
@@ -53,7 +53,7 @@ css({
 Output:
 
 ```js
-`a-a`;
+const className = `a-a`;
 ```
 
 ```css
@@ -69,7 +69,7 @@ Put the animation keyframes in `animationName` property:
 ```ts
 import { css } from "@yume-chan/yangshi";
 
-css({
+const className = css({
   animationName: {
     from: {
       color: "blue",
@@ -86,7 +86,7 @@ css({
 Output:
 
 ```js
-`a-a b-b c-c`;
+const className = `a-a b-b c-c`;
 ```
 
 ```css
@@ -118,7 +118,7 @@ Some shorthand helpers are provided in `atomic` object:
 ```ts
 import { atomic, css } from "@yume-chan/yangshi";
 
-css({
+const className = css({
   ...atomic.border("1px", "solid", "red"),
 });
 ```
@@ -126,7 +126,7 @@ css({
 Output:
 
 ```js
-`a-a b-b c-c d-a e-b f-c g-a h-b i-c j-a k-b l-c`;
+const className = `a-a b-b c-c d-a e-b f-c g-a h-b i-c j-a k-b l-c`;
 ```
 
 ```css
@@ -179,7 +179,7 @@ import { css, cx } from "@yume-chan/yangshi";
 
 const isBlue = true;
 
-cx(
+const className = cx(
   css({
     color: "red",
   }),
@@ -190,7 +190,7 @@ cx(
 Output:
 
 ```js
-cx(`a-a`, Math.random() > 0.5 && `a-b`);
+const className = cx(`a-a`, Math.random() > 0.5 && `a-b`);
 ```
 
 ```css
