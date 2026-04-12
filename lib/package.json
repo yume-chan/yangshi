@@ -1,0 +1,29 @@
+{
+  "name": "@yume-chan/yangshi",
+  "version": "0.1.0",
+  "description": "Another object-style zero-runtime atomic CSS-in-JS library based on wyw-in-js.",
+  "scripts": {
+    "build": "tsdown"
+  },
+  "keywords": [],
+  "author": "Simon Chan <cnsimonchan@live.com>",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.23.0",
+  "dependencies": {
+    "@wyw-in-js/processor-utils": "^1.0.5"
+  },
+  "devDependencies": {
+    "tsdown": "^0.21.7",
+    "typescript": "^6.0.2"
+  },
+  "wyw-in-js": {
+    "tags": {
+      "css": "./processors/css.cjs"
+    }
+  },
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./package.json": "./package.json"
+  }
+}

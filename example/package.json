@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "packageManager": "pnpm@10.23.0",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.28.5",
+    "@wyw-in-js/vite": "^1.0.7",
+    "@yume-chan/yangshi": "workspace:^",
+    "vite": "^8.0.8"
+  }
+}
