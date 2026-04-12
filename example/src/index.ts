@@ -1,7 +1,13 @@
 import { css, cx } from "@yume-chan/yangshi";
 
-const isBlue = Math.random() > 0.5;
+document.body.className = css({
+    color: "red",
 
-const PrimaryColor = "blue";
+    "&:hover": {
+        color: "blue",
+    },
 
-document.body.className = css({ color: PrimaryColor });
+    '.dark &': {
+        color: 'cyan',
+    }
+});

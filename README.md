@@ -47,6 +47,44 @@ const className = `a-a`;
 }
 ```
 
+### Pseudo classes/elements and parent selector
+
+Use `&` (self selector) with nested objects:
+
+```ts
+import { css } from "@yume-chan/yangshi";
+
+const className = css({
+  color: "red",
+
+  "&:hover": {
+    color: "blue",
+  },
+
+  ".dark &": {
+    color: "cyan",
+  },
+});
+```
+
+Output:
+
+```js
+const className = `a-a b-b c-c`;
+```
+
+```css
+.a-a {
+  color: red;
+}
+.b-b:hover {
+  color: blue;
+}
+.dark .c-c {
+  color: cyan;
+}
+```
+
 ### Animation
 
 Put the animation keyframes in `animationName` property:
