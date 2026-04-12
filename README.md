@@ -85,6 +85,41 @@ const className = `a-a b-b c-c`;
 }
 ```
 
+### Media queries and other at-rules
+
+Just what you think:
+
+```ts
+import { css } from "@yume-chan/yangshi";
+
+css({
+  color: "red",
+
+  "@media (prefers-color-scheme: dark)": {
+    color: "blue",
+  },
+});
+```
+
+Output:
+
+```js
+const className = `a-a b-b`;
+```
+
+```css
+.a-a {
+  color: red;
+}
+@media (prefers-color-scheme: dark) {
+  .b-b.b-b {
+    color: #00f;
+  }
+}
+```
+
+Note: at-rules use double class selector (`.b-b.b-b`) to increase its priority, so they always override normal rules no matter the ordering.
+
 ### Animation
 
 Put the animation keyframes in `animationName` property:

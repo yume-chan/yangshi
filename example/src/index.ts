@@ -3,11 +3,7 @@ import { css, cx } from "@yume-chan/yangshi";
 document.body.className = css({
     color: "red",
 
-    "&:hover": {
+    '@media (prefers-color-scheme: dark)': {
         color: "blue",
     },
-
-    '.dark &': {
-        color: 'cyan',
-    }
 });
