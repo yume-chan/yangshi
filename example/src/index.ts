@@ -1,9 +1,3 @@
-import { css, cx } from "@yume-chan/yangshi";
+import { body } from "./style";
 
-document.body.className = css({
-    color: "red",
-
-    '@media (prefers-color-scheme: dark)': {
-        color: "blue",
-    },
-});
+document.body.className = body;

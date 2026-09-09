@@ -1,17 +1,17 @@
 import {
-    BaseProcessor,
-    type Expression,
-    type Params,
-    type Rules,
-    type TailProcessorParams,
-    validateParams,
-    type ValueCache,
+  BaseProcessor,
+  type Expression,
+  type Params,
+  type Rules,
+  type TailProcessorParams,
+  validateParams,
+  type ValueCache,
 } from "@wyw-in-js/processor-utils";
 import { RulesParser } from "../core/rules-parser.js";
 import type { AtomicCssRules } from "../type.js";
 
 export default class CssProcessor extends BaseProcessor {
-  #expression: string | number | boolean | null = null;
+  #expression?: string;
   #className?: string;
 
   constructor([tag, callParam]: Params, ...args: TailProcessorParams) {
@@ -25,23 +25,25 @@ export default class CssProcessor extends BaseProcessor {
       if (ex.type === "Identifier") {
         this.dependencies.push(callParam![1]!);
         this.#expression = ex.name;
-      } else if (ex.type === "NullLiteral") {
-        this.#expression = null;
       } else {
-        this.#expression = ex.value as never;
+        throw new Error("unsupported expression type");
       }
     }
   }
 
   public override get asSelector(): string {
-    throw new Error("The result of `css` cannot be used as a selector.");
+    throw new Error("unsupported");
   }
 
   public override get value(): Expression {
-    throw new Error("The result of `css` cannot be used as a value.");
+    return this.astService.nullLiteral();
   }
 
   build(values: ValueCache): void {
+    if (!this.#expression) {
+      throw new Error("expression is not set");
+    }
+
     const rules = values.get(this.#expression);
     const parser = new RulesParser();
     parser.parseRules(rules as AtomicCssRules);
@@ -64,13 +66,13 @@ export default class CssProcessor extends BaseProcessor {
   }
 
   doEvaltimeReplacement(): void {
-    this.replacer(this.astService.nullLiteral(), false);
+    this.replacer(this.value, false);
   }
 
   doRuntimeReplacement(): void {
     if (!this.#className) {
       throw new Error("build is not called");
     }
-    this.replacer(this.astService.stringLiteral(this.#className), false);
+    this.replacer(this.astService.stringLiteral(this.#className), true);
   }
 }
