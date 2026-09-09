@@ -3,13 +3,16 @@ import type {
   CssBox,
   CssConditional,
   CssDisplay,
+  CssInline,
   CssLogical,
   CssOverscroll,
   CssPosition,
   CssSizing4,
+  CssText4,
   CssAlign,
   CssContainment,
-  CssScrollbars
+  CssScrollbars,
+  CssUi,
 } from "./specs/index.js";
 
 export namespace Css {
@@ -110,43 +113,6 @@ interface CssScrollSnap {
   scrollPaddingInlineEnd: "auto" | Css.LengthPercentage;
 }
 
-/**
- * https://drafts.csswg.org/css-text
- */
-interface CssText {
-  textAlign:
-    | "start"
-    | "end"
-    | "left"
-    | "right"
-    | "center"
-    | "justify"
-    | "match-parent"
-    | "justify-all"
-    | Css.Var;
-
-  letterSpacing: "normal" | Css.Length;
-
-  whiteSpace:
-    | "normal"
-    | "pre"
-    | "nowrap"
-    | "pre-wrap"
-    | "break-spaces"
-    | "pre-line"
-    | Css.Var;
-
-  wordBreak:
-    | "normal"
-    | "break-all"
-    | "keep-all"
-    | "auto-phrase"
-    | "break-word"
-    | Css.Var;
-
-  wordWrap: "normal" | "break-word" | "anywhere" | Css.Var;
-}
-
 interface CssWritingModes {
   writingMode:
     | "horizontal-tb"
@@ -157,13 +123,6 @@ interface CssWritingModes {
   textOrientation: "mixed" | "upright" | "sideways";
 }
 
-interface CssUi {
-  outlineWidth: Css.LineWidth;
-  outlineStyle: "auto" | string;
-  outlineColor: "auto" | Css.Color;
-  outlineOffset: Css.Length;
-}
-
 interface CssStyles
   extends
     CssAlign,
@@ -172,17 +131,16 @@ interface CssStyles
     CssConditional,
     CssContainment,
     CssDisplay,
+    CssInline,
     CssLogical,
     CssOverscroll,
     CssPosition,
     CssSizing4,
     CssScrollbars,
     CssScrollSnap,
-    CssText,
+    CssText4,
     CssWritingModes,
     CssUi {
-  appearance: string;
-  MozAppearance: string;
   transform: string;
   transformOrigin: string;
   translate: string;
@@ -193,7 +151,7 @@ interface CssStyles
   opacity: number;
 
   flexDirection: "row" | "row-reverse" | "column" | "column-reverse";
-  flexWrap: "nowrap" | "wrap" | "wrap-reverse";
+  flexWrap: "nowrap" | "wrap" | "wrap-reverse" | "balance";
   flexGrow: number;
   flexShrink: number;
   flexBasis: "content" | CssStyles["width"];
@@ -212,7 +170,7 @@ interface CssStyles
 
   color: Css.Color;
   fontFamily: string;
-  fontSize: Css.Length;
+  fontSize: Css.LengthPercentage;
   fontWeight: number;
   lineHeight: "normal" | number | Css.LengthPercentage;
   textShadow: string;
@@ -222,11 +180,8 @@ interface CssStyles
   overflowWrap: "normal" | "anywhere" | "break-word";
   verticalAlign: string;
 
-  pointerEvents: string;
-  cursor: string;
   userSelect: string;
   colorScheme: string;
-  WebkitAppRegion: string;
   touchAction: string;
 
   transitionProperty: string;
@@ -266,6 +221,8 @@ interface CssStyles
   WebkitOverflowScrolling: "touch";
 
   borderCollapse: "separate" | "collapse";
+  borderSpacing: Css.Length | Css.Length[];
+
   willChange?: string;
 }
 

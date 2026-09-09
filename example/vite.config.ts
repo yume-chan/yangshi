@@ -10,9 +10,6 @@ export default defineConfig({
     plugins: [
         wyw({
             include: ["./**/*.{ts,tsx}"],
-            babelOptions: {
-                presets: ["@babel/preset-typescript"],
-            },
         }),
     ],
 });

@@ -12,11 +12,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "packageManager": "pnpm@10.23.0",
   "devDependencies": {
-    "@babel/preset-typescript": "^7.28.5",
-    "@wyw-in-js/vite": "^1.0.7",
+    "@wyw-in-js/vite": "^2.5.1",
     "@yume-chan/yangshi": "workspace:^",
-    "vite": "^8.0.8"
+    "vite": "^8.2.2"
   }
 }

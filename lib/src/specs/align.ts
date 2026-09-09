@@ -12,7 +12,7 @@ export interface CssAlign {
     | "normal"
     | CssAlign.BaselinePosition
     | CssAlign.ContentDistribution
-    | CssValues.List<
+    | CssValues.Juxtaposing<
         CssAlign.OverflowPosition | undefined,
         CssAlign.ContentPosition
       >;
@@ -23,7 +23,7 @@ export interface CssAlign {
   justifyContent:
     | "normal"
     | CssAlign.ContentDistribution
-    | CssValues.List<
+    | CssValues.Juxtaposing<
         CssAlign.OverflowPosition | undefined,
         CssAlign.ContentPosition | "left" | "right"
       >;
@@ -33,7 +33,7 @@ export interface CssAlign {
    */
   justifySelf:
     | "auto"
-    | CssValues.List<
+    | CssValues.Juxtaposing<
         CssAlign.OverflowPosition | undefined,
         "normal" | CssAlign.SelfPosition | "left" | "right"
       >
@@ -45,7 +45,7 @@ export interface CssAlign {
    */
   alignSelf:
     | "auto"
-    | CssValues.List<
+    | CssValues.Juxtaposing<
         CssAlign.OverflowPosition | undefined,
         "normal" | CssAlign.SelfPosition
       >
@@ -59,11 +59,11 @@ export interface CssAlign {
     | "normal"
     | "stretch"
     | CssAlign.BaselinePosition
-    | CssValues.List<
+    | CssValues.Juxtaposing<
         CssAlign.OverflowPosition | undefined,
         CssAlign.SelfPosition | "left" | "right"
       >
-    | CssValues.List<"legacy", "left" | "right" | "center" | undefined>;
+    | CssValues.Juxtaposing<"legacy", "left" | "right" | "center" | undefined>;
 
   /**
    * https://drafts.csswg.org/css-align/#align-items-property
@@ -72,7 +72,7 @@ export interface CssAlign {
     | "normal"
     | "stretch"
     | CssAlign.BaselinePosition
-    | CssValues.List<
+    | CssValues.Juxtaposing<
         CssAlign.OverflowPosition | undefined,
         CssAlign.SelfPosition
       >;

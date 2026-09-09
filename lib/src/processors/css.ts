@@ -1,11 +1,11 @@
 import {
-  BaseProcessor,
-  type Expression,
-  type Params,
-  type Rules,
-  type TailProcessorParams,
-  validateParams,
-  type ValueCache,
+    BaseProcessor,
+    type Expression,
+    type Params,
+    type Rules,
+    type TailProcessorParams,
+    validateParams,
+    type ValueCache,
 } from "@wyw-in-js/processor-utils";
 import { RulesParser } from "../core/rules-parser.js";
 import type { AtomicCssRules } from "../type.js";
@@ -28,7 +28,7 @@ export default class CssProcessor extends BaseProcessor {
       } else if (ex.type === "NullLiteral") {
         this.#expression = null;
       } else {
-        this.#expression = ex.value;
+        this.#expression = ex.value as never;
       }
     }
   }

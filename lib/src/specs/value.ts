@@ -46,12 +46,4 @@ export namespace CssValues {
     | `${Exclude<B, undefined>} ${Exclude<A, undefined>}`
     | (A extends undefined ? Exclude<B, undefined> : never)
     | (B extends undefined ? Exclude<A, undefined> : never);
-
-  export type List<
-    A extends string | number | undefined,
-    B extends string | number | undefined,
-  > =
-    | `${Exclude<A, undefined>} ${Exclude<B, undefined>}`
-    | (A extends undefined ? Exclude<B, undefined> : never)
-    | (B extends undefined ? Exclude<A, undefined> : never);
 }
