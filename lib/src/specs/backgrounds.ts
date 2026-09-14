@@ -1,12 +1,14 @@
 import type { Css } from "../type.js";
+import type { CssValues } from "./value.js";
 
 /**
  * https://drafts.csswg.org/css-backgrounds
  */
 export interface CssBackgrounds {
   backgroundColor: Css.Color;
-  backgroundImage: string;
+  backgroundImage: string | string[];
   backgroundClip: string;
+  backgroundSize: CssBackgrounds.BgSize | CssBackgrounds.BgSize[];
   backgroundRepeat: string;
   backgroundPosition: string;
   WebkitBackgroundClip: string;
@@ -31,4 +33,13 @@ export interface CssBackgrounds {
   borderBottomRightRadius: Css.LengthPercentage;
 
   boxShadow: string;
+}
+
+export namespace CssBackgrounds {
+  export type BgSize =
+    | "cover"
+    | "contain"
+    | Css.LengthPercentage
+    | "auto"
+    | `${Css.LengthPercentage | "auto"} ${Css.LengthPercentage | "auto"}`;
 }

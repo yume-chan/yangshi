@@ -29,10 +29,7 @@ export namespace Css {
   export type ContainerUnit = `cq${"w" | "h" | "i" | "b" | "max" | "min"}`;
 
   export type Length =
-    | 0
-    | `${number}${Unit | ViewportUnit | ContainerUnit}`
-    | Var
-    | Calc;
+    0 | `${number}${Unit | ViewportUnit | ContainerUnit}` | Var | Calc;
 
   export type Percentage = `${number}%` | Var | Calc;
 
@@ -41,26 +38,15 @@ export namespace Css {
   export type Color = string;
 
   export type SingleAnimationComposition =
-    | "replace"
-    | "add"
-    | "accumulate"
-    | Var;
+    "replace" | "add" | "accumulate" | Var;
 
   export type Time = `${number}s` | `${number}ms` | Var | Calc;
 
   export type SingleAnimationDirection =
-    | "normal"
-    | "reverse"
-    | "alternate"
-    | "alternate-reverse"
-    | Var;
+    "normal" | "reverse" | "alternate" | "alternate-reverse" | Var;
 
   export type SingleAnimationFillMode =
-    | "none"
-    | "forwards"
-    | "backwards"
-    | "both"
-    | Var;
+    "none" | "forwards" | "backwards" | "both" | Var;
 
   export type SingleAnimationIterationCount = "infinite" | number | Var | Calc;
 
@@ -69,18 +55,12 @@ export namespace Css {
   export type LinearEasingFunction = "linear" | Var;
 
   export type CubicBezierEasingFunction =
-    | "ease"
-    | "ease-in"
-    | "ease-out"
-    | "ease-in-out"
-    | Var;
+    "ease" | "ease-in" | "ease-out" | "ease-in-out" | Var;
 
   export type StepEasingFunction = "step-start" | "step-end" | Var;
 
   export type EasingFunction =
-    | LinearEasingFunction
-    | CubicBezierEasingFunction
-    | StepEasingFunction;
+    LinearEasingFunction | CubicBezierEasingFunction | StepEasingFunction;
 
   export type SingleAnimationEasingFunction = EasingFunction;
 
@@ -91,11 +71,7 @@ export namespace Css {
   export type LineWidth = Length | "thin" | "medium" | "thick";
 
   export type GlobalValues =
-    | "inherit"
-    | "initial"
-    | "revert"
-    | "revert-layer"
-    | "unset";
+    "inherit" | "initial" | "revert" | "revert-layer" | "unset";
 }
 
 /**
@@ -169,7 +145,7 @@ interface CssStyles
   gridRowEnd: number;
 
   color: Css.Color;
-  fontFamily: string;
+  fontFamily: string | string[];
   fontSize: Css.LengthPercentage;
   fontWeight: number;
   lineHeight: "normal" | number | Css.LengthPercentage;
@@ -190,25 +166,19 @@ interface CssStyles
   transitionDelay: string;
 
   animationComposition:
-    | Css.SingleAnimationComposition
-    | Css.SingleAnimationComposition[];
+    Css.SingleAnimationComposition | Css.SingleAnimationComposition[];
   animationDelay: Css.Time | Css.Time[];
   animationDirection:
-    | Css.SingleAnimationDirection
-    | Css.SingleAnimationDirection[];
+    Css.SingleAnimationDirection | Css.SingleAnimationDirection[];
   animationDuration: Css.Time | Css.Time[];
   animationFillMode:
-    | Css.SingleAnimationFillMode
-    | Css.SingleAnimationFillMode[];
+    Css.SingleAnimationFillMode | Css.SingleAnimationFillMode[];
   animationIterationCount:
-    | Css.SingleAnimationIterationCount
-    | Css.SingleAnimationIterationCount[];
+    Css.SingleAnimationIterationCount | Css.SingleAnimationIterationCount[];
   animationPlayState:
-    | Css.SingleAnimationPlayState
-    | Css.SingleAnimationPlayState[];
+    Css.SingleAnimationPlayState | Css.SingleAnimationPlayState[];
   animationTimingFunction:
-    | Css.SingleAnimationEasingFunction
-    | Css.SingleAnimationEasingFunction[];
+    Css.SingleAnimationEasingFunction | Css.SingleAnimationEasingFunction[];
 
   listStyle: string;
   objectFit: string;
@@ -234,9 +204,7 @@ export interface PropertyRule {
 
 export type AtomicCssRules<
   AtRules extends string | never =
-    | `@media ${string}`
-    | `@container ${string}`
-    | `@supports ${string}`,
+    `@media ${string}` | `@container ${string}` | `@supports ${string}`,
   PseudoRules extends string | never = `${string}&${string}`,
   PropertyRules extends string | never = `@property --${string}`,
 > = {

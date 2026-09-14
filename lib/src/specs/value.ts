@@ -17,10 +17,7 @@ export namespace CssValues {
    * https://www.w3.org/TR/css-values-4/#component-combinators
    */
   export type DoubleBar<A extends string | number, B extends string | number> =
-    | A
-    | B
-    | `${A} ${B}`
-    | `${B} ${A}`;
+    A | B | `${A} ${B}` | `${B} ${A}`;
 
   export type DoubleBar3<
     A extends string | number,
