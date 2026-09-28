@@ -13,12 +13,17 @@ import type {
   CssContainment,
   CssScrollbars,
   CssUi,
+  CssContent,
 } from "./specs/index.js";
 
 export namespace Css {
   export type Var = `var(--${string})` | `env(${string})`;
 
-  export type Calc = `calc(${string})` | `min(${string})` | `max(${string})`;
+  export type Calc =
+    | `calc(${string})`
+    | `min(${string})`
+    | `max(${string})`
+    | `clamp(${string}, ${string}, ${string})`;
 
   export type Unit = "lh" | "px" | "em" | "rem";
 
@@ -106,6 +111,7 @@ interface CssStyles
     CssBox,
     CssConditional,
     CssContainment,
+    CssContent,
     CssDisplay,
     CssInline,
     CssLogical,
@@ -148,6 +154,7 @@ interface CssStyles
   fontFamily: string | string[];
   fontSize: Css.LengthPercentage;
   fontWeight: number;
+  fontStyle: "normal" | "italic" | "oblique";
   lineHeight: "normal" | number | Css.LengthPercentage;
   textShadow: string;
   textDecoration: string;

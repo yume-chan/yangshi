@@ -3,6 +3,7 @@ export * from "./backgrounds.js";
 export * from "./box.js";
 export * from "./conditional.js";
 export * from "./containment.js";
+export * from "./content.js";
 export * from "./display.js";
 export * from "./inline.js";
 export * from "./logical.js";

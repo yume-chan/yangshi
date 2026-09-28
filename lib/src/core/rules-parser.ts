@@ -1,3 +1,4 @@
+import { atomic } from "../index.js";
 import type { AtomicCssRules, PropertyRule } from "../type.js";
 import { AnimationParser } from "./animation.js";
 import { NameMinifier } from "./name-minifier.js";
@@ -83,6 +84,10 @@ export class RulesParser {
         value = this.parseAnimation(value);
       }
       // fallthrough
+    }
+
+    if (key === "fontFamily" && Array.isArray(value)) {
+      value = atomic.fontFamilies(...value);
     }
 
     if (Array.isArray(value)) {
