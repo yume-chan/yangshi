@@ -4,6 +4,7 @@ import type { AtomicCssRules } from "./type.js";
 let StyleElement: HTMLStyleElement;
 let KnownRules = new Set<string>();
 
+/* #__NO_SIDE_EFFECTS__ */
 export function css(rules: AtomicCssRules) {
   const parser = new RulesParser();
   parser.parseRules(rules);

@@ -57,12 +57,18 @@ export namespace Css {
 
   export type SingleAnimationPlayState = "running" | "paused" | Var;
 
-  export type LinearEasingFunction = "linear" | Var;
+  export type LinearEasingFunction = "linear" | `linear(${string})` | Var;
 
   export type CubicBezierEasingFunction =
-    "ease" | "ease-in" | "ease-out" | "ease-in-out" | Var;
+    | "ease"
+    | "ease-in"
+    | "ease-out"
+    | "ease-in-out"
+    | `cubic-bezier(${number}, ${number}, ${number}, ${number})`
+    | Var;
 
-  export type StepEasingFunction = "step-start" | "step-end" | Var;
+  export type StepEasingFunction =
+    "step-start" | "step-end" | `steps(${string})` | Var;
 
   export type EasingFunction =
     LinearEasingFunction | CubicBezierEasingFunction | StepEasingFunction;
@@ -134,6 +140,7 @@ interface CssStyles
 
   flexDirection: "row" | "row-reverse" | "column" | "column-reverse";
   flexWrap: "nowrap" | "wrap" | "wrap-reverse" | "balance";
+  order: number;
   flexGrow: number;
   flexShrink: number;
   flexBasis: "content" | CssStyles["width"];
