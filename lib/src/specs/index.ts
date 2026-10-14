@@ -6,6 +6,7 @@ export * from "./containment.js";
 export * from "./content.js";
 export * from "./display.js";
 export * from "./inline.js";
+export * from "./lists.js";
 export * from "./logical.js";
 export * from "./overscroll.js";
 export * from "./position.js";

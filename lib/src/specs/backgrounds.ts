@@ -1,5 +1,4 @@
 import type { Css } from "../type.js";
-import type { CssValues } from "./value.js";
 
 /**
  * https://drafts.csswg.org/css-backgrounds

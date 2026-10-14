@@ -14,6 +14,7 @@ import type {
   CssScrollbars,
   CssUi,
   CssContent,
+  CssLists,
 } from "./specs/index.js";
 
 export namespace Css {
@@ -83,6 +84,13 @@ export namespace Css {
 
   export type GlobalValues =
     "inherit" | "initial" | "revert" | "revert-layer" | "unset";
+
+  export type Url = `url(${string})` | `src(${string})`;
+
+  export type Gradient =
+    `linear-gradient(${string})` | `radial-gradient(${string})`;
+
+  export type Image = Url | Gradient;
 }
 
 /**
@@ -120,6 +128,7 @@ interface CssStyles
     CssContent,
     CssDisplay,
     CssInline,
+    CssLists,
     CssLogical,
     CssOverscroll,
     CssPosition,
