@@ -15,6 +15,7 @@ import type {
   CssUi,
   CssContent,
   CssLists,
+  CssCompat,
 } from "./specs/index.js";
 
 export namespace Css {
@@ -125,6 +126,7 @@ interface CssStyles
     CssBox,
     CssConditional,
     CssContainment,
+    CssCompat,
     CssContent,
     CssDisplay,
     CssInline,

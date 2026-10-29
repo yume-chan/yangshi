@@ -1,6 +1,7 @@
 export * from "./align.js";
 export * from "./backgrounds.js";
 export * from "./box.js";
+export * from "./compat.js";
 export * from "./conditional.js";
 export * from "./containment.js";
 export * from "./content.js";
